@@ -1,0 +1,17 @@
+
+    body {
+      /* Adds a font family with a fallback */
+      font-family: "Arial", Times, serif;
+
+      /* Adds a background color */
+      background-color: #f0f0f0;
+
+      /* Adds a margin around the page or element */
+      margin: 50px;
+    
+    .nav-links {
+      display: flex; /* Aligns links in a row */
+      gap: 15px; /* Adds a precise 15px space between each link */
+    }
+}
+
