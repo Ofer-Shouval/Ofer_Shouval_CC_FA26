@@ -1,17 +1,44 @@
+html {
+  body {
+    /* Adds a font family with a fallback */
+    font-family: "Arial", Times, serif;
 
-    body {
-      /* Adds a font family with a fallback */
-      font-family: "Arial", Times, serif;
+    /* Adds a background color */
+    background-color: #f0f0f0;
+    max-width: 80%;
+    overflow-x: hidden;
 
-      /* Adds a background color */
-      background-color: #f0f0f0;
+    /* Adds a margin around the page or element */
+    /* margin: 50px; */
 
-      /* Adds a margin around the page or element */
-      margin: 50px;
-    
     .nav-links {
       display: flex; /* Aligns links in a row */
       gap: 15px; /* Adds a precise 15px space between each link */
     }
+   .vertical-links {
+  /* 1. Turn the container into a Flexbox column layout */
+  display: flex;
+  flex-direction: column;
+  
+  /* 2. Set the vertical gap spacing between each link */
+  gap: 12px; 
+  
+  /* 3. Give the menu box a neat structural boundary */
+  max-width: 250px; 
+  padding: 16px;
 }
-
+  }
+  #defaultCanvas0 {
+  /* 1. Undo p5.js absolute positioning */
+  position: relative !important; 
+  display: block !important;
+  
+  /* 2. Apply your margin rules */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  
+  /* 3. Scale down slightly so the margins have visible space to exist */
+  max-width: 90vw !important; 
+  height: auto !important;
+}
+}
