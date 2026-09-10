@@ -24,5 +24,4 @@ function mousePressed(){
 }
 function keyPressed() {
              background(100);
-
 } 

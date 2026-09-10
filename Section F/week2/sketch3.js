@@ -1,5 +1,5 @@
 let x, y;
-let diameter = 400
+let diameter = 100
 let yV = 5, xV = 3
 
 function setup(){
