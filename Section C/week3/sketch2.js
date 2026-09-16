@@ -22,18 +22,20 @@ function draw(){
     background(0);
 
 
+    //a demonstration of lerping 
+
     // rect(0,height/2,50)
     // rect(width-50,height/2,50)
 
     // let x = lerp(0,width-50,0.75 )
-
-    lerpedMouseX = lerp(lerpedMouseX, mouseX, 0.05)
-    lerpedMouseY = lerp(lerpedMouseY, mouseY, 0.05)
-
     // rect(lerpedMouseX,lerpedMouseY, 50)
 
 
 
+    lerpedMouseX = lerp(lerpedMouseX, mouseX, 0.05)
+    lerpedMouseY = lerp(lerpedMouseY, mouseY, 0.05)
+
+    
 
 
 
