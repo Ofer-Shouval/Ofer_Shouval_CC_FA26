@@ -42,7 +42,7 @@ function draw(){
     rect(0,0,50,50)
     pop()
 
-      
+
     push();
     translate(width/4, height/2)
     rotate(-r)

@@ -17,5 +17,4 @@ ellipse(mouseX,mouseY,50, 50)
 function mousePressed(){
         background(100)
 
-
 }
