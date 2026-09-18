@@ -1,5 +1,6 @@
 let r =0
 
+   
 function setup(){
 
     createCanvas(windowWidth,windowHeight)
@@ -12,6 +13,8 @@ function setup(){
 }
 
 function draw(){
+
+    
 
     background(0)
     noFill()
@@ -102,9 +105,6 @@ function draw(){
     rect(0,0,150,100,10)
 
     pop()
-
-
-
 
 
 

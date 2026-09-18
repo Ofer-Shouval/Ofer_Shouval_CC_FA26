@@ -85,7 +85,7 @@ function draw(){
      translate(w/2, h/2)
 
       for(let x = 0; x<numRects; x++){
-
+        
         for(let y = 0; y<numRects; y++){
 
             let d = dist(mouseX, mouseY,w*x,y*h)
