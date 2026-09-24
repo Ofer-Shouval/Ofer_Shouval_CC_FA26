@@ -1,5 +1,4 @@
 
-let rows = 20
 let rows = 40
 let cols = 40
 
