@@ -1,6 +1,7 @@
 
 let rows = 20
-let cols = 20
+let rows = 40
+let cols = 40
 
 function setup(){
     createCanvas(400,400)
@@ -16,12 +17,15 @@ function draw(){
     background(255)
 
 
-    for(let x = 0; x<width/cols; x++){
-        for(let y = 0; y<height/rows; y++){
-
-            let n = noise(x*10, y*10, i)
+    for(let x = 0; x < cols; x++ ){
+        for(let y = 0; y < rows; y++){
+            let n = noise(x/10, y/10, i)
             fill(n)
+
             rect( x * (width/cols), y * (height/rows), n * width/cols, n * height/rows)
+
+            // rect( x * (width/cols), y * (height/rows), width/cols, height/rows)
+
 
         }
 
