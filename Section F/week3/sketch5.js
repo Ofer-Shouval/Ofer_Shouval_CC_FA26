@@ -4,7 +4,6 @@ let w, h;
 let numRects = 20; 
 
 
-
    
 function setup(){
 
