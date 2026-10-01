@@ -41,23 +41,18 @@ function draw(){
     background(50)
 
    
-     if(count%2 == 0){
-        drawGrid()
-     }
+    //  if(count%2 == 0){
+    //     drawGrid()
+    //  }
 
-     else{
-         drawWorm()
-     }
-    
+    //  else{
+    //      drawWorm()
+    //  }
+    drawGrid()
+    drawWorm()
    
 
-
-
 }
-
-
-
-
 
 function drawWorm(){
     layer1.clear()

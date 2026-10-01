@@ -11,16 +11,20 @@ function setup(){
 
     for(let x = 0; x<cols; x++){
         for(let y =0; y< rows; y++)
-        {   
+        {
+            
             boxes[index] = 0
+
             index++
         }
     }
     print(boxes)
+
 }
 
 function draw(){
     background(0)
+
     let index = 0 
 
     for(let x = 0; x<cols; x++){
