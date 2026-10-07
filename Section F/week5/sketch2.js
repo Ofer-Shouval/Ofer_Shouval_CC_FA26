@@ -16,8 +16,7 @@ function setup(){
         }
     }
     // print(boxes)
-
-
+    strokeWeight(0.1)
 }
 function draw(){
     background(0)

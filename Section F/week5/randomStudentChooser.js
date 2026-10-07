@@ -9,6 +9,7 @@ async function setup(){
     createCanvas(windowWidth, windowHeight)
     font = await
     loadFont('ARCADE_N.TTF')
+
     textFont(font)
     textSize(36)
     textAlign(CENTER)
@@ -30,15 +31,18 @@ function draw(){
 function mousePressed(){
 
     let length = students.length
-    let i = floor(random(length-1))
+    let i = floor(random(length))
 
     if(students.length > 0){
         student = students[i]
         students.splice(i,1)
     }
-    print(students)
+    else{
+        textSize(16)
+        student = "Holy Shit\nI've called on everyone"
+    }
 
     col = 255
-    // print(student)
+     print(student)
 
 }

@@ -4,8 +4,8 @@ let xLoc = []
 let yLoc = []
 let numSegments = 100
 
-let rows = 50
-let cols = 50
+let rows = 15
+let cols = 15
 let boxes = []
 
 let layer1 
@@ -46,6 +46,8 @@ let counter = 0
 
 function draw(){
 
+    background(0)
+
     //worm
     layer1.clear()
     layer1.stroke(255)
@@ -72,7 +74,7 @@ function draw(){
     }
 
 
- counter+=0.01
+
 
 
 // grid
@@ -83,21 +85,25 @@ function draw(){
     for(let x = 0; x< cols; x++){
         for(let y = 0; y<rows; y++){
            {
-            // stroke(255)
-            layer2.fill(0)
+            layer2.stroke(255)
+            layer2.strokeWeight(0.01)
+            layer2.fill(0,0)
 
-            if( mouseX > x*(width/cols) && 
-                mouseX < (x+1)*(width/cols) && 
-                mouseY > y*(height/rows) && 
-                mouseY < (y+1)*(height/rows))
+            if( width * noise(counter) > x*(width/cols) && 
+                width * noise(counter) < (x+1)*(width/cols) && 
+                height * noise(counter+10)> y*(height/rows) && 
+                height * noise(counter+10)< (y+1)*(height/rows))
                 {
                     boxes[index] = 255
+                    
+                    
                 }
 
+             
             
-            
-             layer2.fill(boxes[index], random(10), random(10))
+             layer2.fill(boxes[index], random(10), random(10), floor(boxes[index]))
              layer2.rect(x*(width/cols), y*(height/rows), width/cols, height/rows)
+
             
              let n = index
             //  text(n, x*(width/cols), y*(height/rows))
@@ -110,6 +116,8 @@ function draw(){
 
     }
 
+    // this code switches betwee one or the other ˇˇˇ
+
     // if(onOff == 0){
 
     //     image(layer1,0,0,width, height)
@@ -118,8 +126,11 @@ function draw(){
     //     
 // }
     
-    image(layer2,0,0,width, height)
+   
     image(layer1,0,0,width, height)
+    image(layer2,0,0,width, height)
+
+     counter+=0.01
 }
 
 

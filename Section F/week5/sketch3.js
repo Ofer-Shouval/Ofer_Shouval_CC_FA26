@@ -1,6 +1,6 @@
 
-let rows = 50
-let cols = 50
+let rows = 20
+let cols = 20
 let boxes = []
 
 
@@ -12,10 +12,7 @@ function setup(){
     for(let x = 0; x<cols; x++){
         for(let y = 0; y<rows; y++){
 
-
             boxes[index] = 0
-
-
             index++
         }
     }
