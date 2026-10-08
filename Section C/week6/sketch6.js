@@ -20,7 +20,6 @@ function setup(){
 
     // ellipse(circ.x, circ.y, circ.radius)
 
-
 }
 
 
