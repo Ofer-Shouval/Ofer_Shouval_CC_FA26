@@ -62,7 +62,7 @@ noStroke()
   if(dist(xLoc, height/2, width/2, height/2)<50){
     fill(200,150,0)
 
-    window.location.href = "../../index.html"
+    window.location.href = "week6_1.html"
   }
   rect(width/2, height/2, 100,200)
 
