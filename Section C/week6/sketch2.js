@@ -39,26 +39,24 @@ function draw() {
       counter++
     }
   }
-  // else if(!keyIsPressed){
-  //   // print('hi')
-  //   img = frames[0]
-  // }
-
+  
   push();
+
   translate(width / 2 + xLoc, height / 2);
   scale(reverse, 1);
   image(img, 0, 0);
+
   pop();
 
   fill(0)
 
   rect(0.75*width, height/2, 100,200)
 
+  
   if(dist(width / 2 + xLoc, height/2, 0.75*width, height/2)<50){
     // print("hit")
      window.location.href = "../../index.html";
   }
-
-    
+ 
 }
 
