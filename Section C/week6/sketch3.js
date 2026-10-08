@@ -38,14 +38,9 @@ function draw(){
 
   rect(width-100, height/2, 80,200)
 
-  // if (x> width){
-  //     dir = -dir
-  // }
-  //   if (x<0){
-  //     dir = -dir
-  // }
+
   x += xV * dir
-  
+
 
   if(dist(x,height/2, width-100, height/2)<50){
     window.location.href=('../../index.html')
