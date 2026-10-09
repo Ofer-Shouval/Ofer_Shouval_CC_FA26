@@ -21,7 +21,7 @@ html {
   flex-direction: column;
   
   /* 2. Set the vertical gap spacing between each link */
-  gap: 12px; 
+  gap: 30px; 
   
   /* 3. Give the menu box a neat structural boundary */
   max-width: 250px; 
