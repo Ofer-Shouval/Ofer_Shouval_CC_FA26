@@ -59,7 +59,7 @@ async function setup() {
     );
   }
 
-  pMapper.load("maps/map.json");
+  // pMapper.load("maps/map.json");
 }
 
 function draw() {
