@@ -101,8 +101,8 @@ function draw(){
 
              
             
-             layer2.fill(boxes[index], random(10), random(10), floor(boxes[index]))
-             layer2.rect(x*(width/cols), y*(height/rows), width/cols, height/rows)
+            //  layer2.fill(boxes[index], random(10), random(10), floor(boxes[index]))
+            //  layer2.rect(x*(width/cols), y*(height/rows), width/cols, height/rows)
 
             
              let n = index
