@@ -37,7 +37,7 @@ async function setup() {
   // worm: square to match quadMap3
   wormBuf = createGraphics(600, 600);
   layer1 = createGraphics(wormBuf.width, wormBuf.height);
-  layer2 = createGraphics(wormBuf.width, wormBuf.height);
+
 
   for (let i = 0; i < numSegments; i++) {
     xLoc[i] = wormBuf.width / 2;
@@ -136,37 +136,18 @@ function worm(pg) {
   }
 
   // grid
-  let index = 0;
-  for (let x = 0; x < cols; x++) {
-    for (let y = 0; y < rows; y++) {
-      layer2.stroke(255);
-      layer2.strokeWeight(0.01);
-      layer2.fill(0, 0);
+    pg.background(0);
+  pg.image(layer1, 0, 0, w, h);
+ 
 
-      if (
-        w * noise(counter) > x * (w / cols) &&
-        w * noise(counter) < (x + 1) * (w / cols) &&
-        h * noise(counter + 10) > y * (h / rows) &&
-        h * noise(counter + 10) < (y + 1) * (h / rows)
-      ) {
-        boxes[index] = 255;
-      }
-
-      // layer2.fill(boxes[index], random(10), random(10), floor(boxes[index]));
-      // layer2.rect(x * (w / cols), y * (h / rows), w / cols, h / rows);
-
-      boxes[index] *= 0.99;
-      index++;
-    }
+  counter += 0.01;
+  
+   
   }
 
   // combine the layers into the surface's buffer
-  pg.background(0);
-  pg.image(layer1, 0, 0, w, h);
-  pg.image(layer2, 0, 0, w, h);
 
-  counter += 0.01;
-}
+
 
 function squares(pg) {
   pg.push();
