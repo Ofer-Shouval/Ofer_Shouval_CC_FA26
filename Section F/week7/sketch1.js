@@ -1,6 +1,8 @@
 let pMapper;
 let quadMap, quadMap2, quadMap3, quadMap4;
 let circleBuf, squaresBuf, walkersBuf, wormBuf;
+
+
 let frames = [];
 let guys = [];
 let ripples = [];
