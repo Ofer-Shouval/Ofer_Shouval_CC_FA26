@@ -11,19 +11,21 @@ async function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   pMapper = createProjectionMapper(this);
 
+  //SQUARES 
   quadMap = pMapper.createQuadMap(400, 400, 20, 20);
+  //WALKERS 
   quadMap2 = pMapper.createQuadMap(400, 400, 20, 20);
-  quadMap3 = pMapper.createQuadMap(800, 200, 20, 20);
-  quadMap4 = pMapper.createQuadMap(400, 400, 20, 20);
+  //FLOWERS 
+  quadMap3 = pMapper.createQuadMap(400, 200, 20, 20);
+  //SOLID COLOR
+  quadMap4 = pMapper.createQuadMap(400, 200, 20, 20);
+
 
   squaresBuf = createGraphics(400, 400);
   walkersBuf = createGraphics(400, 400);
   flowersBuf = createGraphics(400, 200);
-  flowersBuf.angleMode(DEGREES);
-
 
   solidColorBuf = createGraphics(400, 200);
-
 
   //walkers initialization
 
@@ -44,16 +46,12 @@ async function setup() {
   }
 
 
- 
- 
 
   pMapper.load("maps/map.json");
 }
 
 function draw() {
   background(0);
-
-
 
   squares(squaresBuf);
   walkers(walkersBuf)
@@ -96,7 +94,9 @@ function walkers(pg) {
 
 
 function flowerField(pg) {
+  
   pg.push();
+  pg.angleMode(DEGREES);
   pg.background(0);
   let d = map(mouseX, 0, width, -5, 5);
   for (let i = 0; i < flowers.length; i++) {
