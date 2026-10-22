@@ -7,8 +7,8 @@ let squaresBuf
 async function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   pMapper = createProjectionMapper(this);
-  quadMap = pMapper.createQuadMap(400, 200, 20, 20);
-  squaresBuf = createGraphics(400, 200);
+  quadMap = pMapper.createQuadMap(400, 400, 20, 20);
+  squaresBuf = createGraphics(400, 400);
   squaresBuf.background(0, 0, 0);
 
 
