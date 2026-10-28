@@ -13,9 +13,11 @@ function preload(){
   //video dimensions 450 x 338
 }
 
-function setup() {
+async function setup() {
   createCanvas(windowWidth, windowHeight);
   // imageMode(CENTER)
+  
+  vid = await createVideo('clip.mov') 
 
   // vid.loop()
   // vid.volume(0)
@@ -33,8 +35,6 @@ function draw() {
   background(0)
   colorMode(HSB)
 
-  // hold + or - to change the number of cells
-  // (only every 5 frames, so it doesn't change too fast)
   if (keyIsPressed && frameCount % 5 === 0) {
     // '=' is the same key as '+' without shift
     if (key === '+' || key === '=') {
@@ -48,21 +48,7 @@ function draw() {
     }
   }
 
-  // the video's length is NaN until it finishes loading, so keep checking
-  // if (!vidDuration) {
-  //   vidDuration = vid.duration()
-  // }
 
-  // if (vidDuration) {
-  //   vid.time(map(mouseX, 0,width,0,vidDuration))
-  // }
-
-
-  // draw the background and first video normally
-  // blendMode(BLEND)
-  // background(255)
-
-  // image(vid,0,0)
   translate(5,5)
 
   blendMode(BLEND)
