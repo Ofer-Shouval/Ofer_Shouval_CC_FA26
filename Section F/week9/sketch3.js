@@ -74,7 +74,7 @@ function draw() {
     let thumb = createVector(hand.keypoints[4].x, hand.keypoints[4].y)
     let index = createVector(hand.keypoints[8].x, hand.keypoints[8].y)
 
-    if (thumb.dist(index) < 30) {
+    if (thumb.dist(index) < 25) {
       pinch = 1
       pinchLoc = thumb.copy()
     }
@@ -86,8 +86,9 @@ function draw() {
 
     if (pinch == 1) {
       for (let k = 0; k < shapePoints.length; k++) {
-        if (pinchLoc.dist(shapePoints[k]) < 30) {
+        if (pinchLoc.dist(shapePoints[k]) < 25) {
           shapePoints[k].set(pinchLoc)
+          break
         }
       }
     }
