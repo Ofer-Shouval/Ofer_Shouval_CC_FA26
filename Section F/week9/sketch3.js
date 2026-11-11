@@ -11,8 +11,15 @@ let video;
 let hands = [];
 let dotNumber = 0;
 
-let shapePoints = [] // array of p5.Vectors
+let shapePoints = [] 
+// array of p5.Vectors. 
+// Vector is p5 object with a bunch of math functions attached. 
+// here we're just using it to store x,y coordinates
 let numPoints = 6
+
+let pinch = 0
+let pinchLoc
+
 
 async function setup() {
   createCanvas(640, 480);
@@ -35,8 +42,6 @@ async function setup() {
 
 }
 
-let pinch = 0
-let pinchLoc
 
 function draw() {
   // Draw the webcam video
@@ -50,30 +55,49 @@ function draw() {
 
   // Draw all the tracked hand points
   for (let i = 0; i < hands.length; i++) {
+
+    // going through the hands that are on the screen if there's 0, doesnt run. 
+    // if there's 2, runs twice
+
     let hand = hands[i];
+    // a new variable 'hand' is declared and is filled with the data for
+    //  whichever hand we're dealing with first
+
+
     for (let j = 0; j < hand.keypoints.length; j++) {
+
+      //____________things we for each keypoint in here _________________
+
+      //now we go through all the points that are contained in each hand. 
+      // // hand.keypoints contains an array of all the x,y coordinates of these points
+
       let keypoint = hand.keypoints[j];
+      // load current keypoint into its own variable
+
+
       stroke(0, 255, 0);
 
+
+      //allows us to see which dot is which by changing its stroke color
       if (j == dotNumber) {
         stroke(255, 0, 0)
+        }
+        circle(keypoint.x, keypoint.y, 10);
+
+
+      //______________________________________________________________
       }
-      circle(keypoint.x, keypoint.y, 10);
-    }
 
-    if (i == 0) {
-      stroke(0, 255, 0)
-    }
+   
 
-    if (i == 1) {
-      stroke(0, 0, 255)
-    }
-
+    // we know which keypoints represent the thumb and the index finger tips, put a line between them. 
     line(hand.keypoints[4].x, hand.keypoints[4].y, hand.keypoints[8].x, hand.keypoints[8].y)
 
+    //we make a vector for each of these locations, we check the distances between them 
     let thumb = createVector(hand.keypoints[4].x, hand.keypoints[4].y)
     let index = createVector(hand.keypoints[8].x, hand.keypoints[8].y)
 
+    //check distances between thumb and index finger, if less than 25 px, set pinch to 1, otherwise set it to 0 
     if (thumb.dist(index) < 25) {
       pinch = 1
       pinchLoc = thumb.copy()
@@ -82,13 +106,19 @@ function draw() {
       pinch = 0
     }
 
+    //debug
     print(pinch)
 
+    //if we are pinching, we go through the shape points and check if theyre within 25 px of the pinchLoc, which has been set to thumb,
+    
     if (pinch == 1) {
       for (let k = 0; k < shapePoints.length; k++) {
         if (pinchLoc.dist(shapePoints[k]) < 25) {
           shapePoints[k].set(pinchLoc)
+          
+          //if one is close enough, stop going through the array and set the location of that point the thumb is
           break
+
         }
       }
     }
@@ -98,6 +128,8 @@ function draw() {
   stroke(200)
   text(dotNumber, 20, 20)
 
+  
+  // draw the shape based on whatever the set of points are at that moment
   beginShape()
   for (let p = 0; p < numPoints; p++) {
     vertex(shapePoints[p].x, shapePoints[p].y)
@@ -115,7 +147,7 @@ function draw() {
 
 // Callback function for when handPose outputs data
 function gotHands(results) {
-  // save the output to the hands variable
+  // save the output to the hands variable. will then be used in draw
   hands = results;
 }
 
@@ -128,6 +160,6 @@ function mousePressed() {
     dotNumber = 0
   }
 
-  print(shapePoints)
+  // print(shapePoints)
 
 }
