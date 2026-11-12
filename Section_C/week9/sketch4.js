@@ -27,11 +27,18 @@ let smoothPoints = []
 // how fast the smoothed points catch up (0 = never move, 1 = no smoothing)
 let smoothAmount = 0.7
 
+
+const myTimeout = setTimeout(myGreeting, 5000);
+
 async function setup() {
   createCanvas(640, 480);
   
   // Load the handPose model asynchronously
   handPose = await ml5.handPose({maxHands: 1,flipped: true}
+
+ 
+
+
 );
   
   // Create the webcam video and hide it
@@ -39,8 +46,10 @@ async function setup() {
   video.size(640, 480);
   video.hide();
   
+  
   // start detecting hands from the webcam video
   handPose.detectStart(video, gotHands);
+
 
   for(let i = 0; i< numPoints; i++){
     shapePoints[i] = []

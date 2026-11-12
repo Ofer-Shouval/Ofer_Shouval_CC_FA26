@@ -18,7 +18,7 @@ async function setup() {
   imageMode(CENTER)
 
   for (let i = 1; i <= 12; i++) {
-    frames.push(await loadImage('Section F/week6/walk_cycle_png_sequence/' + i + '.png'));
+    frames.push(await loadImage('Section_F/week6/walk_cycle_png_sequence/' + i + '.png'));
   }
 
   for(let j = 0; j<50; j++){

@@ -35,6 +35,7 @@ async function setup() {
   video.hide();
   
   // start detecting hands from the webcam video
+
   handPose.detectStart(video, gotHands);
 
   for(let i = 0; i< numPoints; i++){
@@ -143,6 +144,7 @@ function draw() {
 // Callback function for when handPose outputs data
 function gotHands(results) {
   // save the output to the hands variable
+
   hands = results;
 }
 
