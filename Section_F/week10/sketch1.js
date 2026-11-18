@@ -3,12 +3,12 @@ let mySound1;
 
 function preload() {
   // preload() waits until the sound file finishes loading
-  mySound = loadSound('microphones_clip.mp3');
-mySound1 = loadSound('microphones_clip.mp3');
+//   mySound = loadSound('microphones_clip.mp3');
+// mySound1 = loadSound('microphones_clip.mp3');
 
   
-  // mySound = loadSound('ping.mp3');
-  // mySound1 = loadSound('ping.mp3');
+  mySound = loadSound('ping.mp3');
+  mySound1 = loadSound('ping.mp3');
   
 }
 
