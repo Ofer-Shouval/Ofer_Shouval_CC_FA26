@@ -1,59 +1,63 @@
-let mySound;
-// let mySound1;
+let sound1, sound2, reverb
 
-function preload() {
-  // preload() waits until the sound file finishes loading
-  // mySound = loadSound('microphones_clip.mp3');
-  // mySound1 = loadSound('microphones_clip.mp3');
+function preload(){
+   sound1 = loadSound('ping.mp3')
+   sound2 = loadSound('ping.mp3')
+   
+  // sound1 = loadSound('microphones_in_2020_clip.mp3')
 
-  
-  // mySound = loadSound('ping.mp3');
-  // mySound1 = loadSound('ping.mp3');
-  
-    // mySound = loadSound('diiv.mp3');
+}
+function setup(){
+    createCanvas(windowWidth, windowHeight)
 
-    mySound = loadSound('microphones_in_2020_clip.mp3')
+        // reverb = new Reverb(3)
+
+        // sound1.disconnect()
+        // sound2.disconnect()
+
+        // sound1.connect(reverb)
+        // sound2.connect(reverb)
 
 }
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  rectMode(CENTER)
-}
+function draw(){
+    background(200)
+    if(onOff == 0){
+        text('stopped', 20,20)
+    }
+    else{
+        text('playing', 20,20)
+    }
 
-function draw() {
-  background(220);
-  textAlign(CENTER, CENTER);
-  text('press p to play or stop', width / 2, 20);
-
-
-    let time = mySound.currentTime()
-
-   if(mySound.isPlaying()){
-     
-    text(round(time), 10,10)
-  }
-
-  rect(map(time, 0, mySound.duration(),0,width), height/2, 20,20)
-
-}
-
-function keyPressed() {
-
-
-if(mySound.isPlaying() && key == 'p'){
-  mySound.stop()
-} 
-else{
-  mySound.loop();
-}
+    let rate1 = map(mouseX, 0,width, -3,3)
+    let rate2 = map(mouseY, 0,height, -3,3)
+    sound1.rate(rate1)
+    sound2.rate(rate2)
 
 
 }
 
-function mouseDragged(){
+let onOff = 0 
 
-  if(mySound.isPlaying()){
-     mySound.jump(map(mouseX,0,width, 0,mySound.duration() ))
-  }
+
+function mousePressed(){
+
+    if(onOff == 0){
+        sound1.loop()
+        sound2.loop()
+        onOff = 1
+    }
+    else{
+        sound1.stop()
+        sound2.stop()
+        
+
+        onOff = 0
+    }
+         
+    
+
+
+    
+
 }
