@@ -27,7 +27,7 @@ async function setup() {
     delayTime: "8n",  // time between echoes (or seconds, e.g. 0.25)
     feedback: 0.4,    // 0-1: how much of each echo feeds back (more = more repeats)
     wet: 0.5,
-    maxDelay: 2          // 0-1: mix of echo vs. original sound
+    maxDelay: 1         // 0-1: mix of echo vs. original sound
   }).connect(limiter);
 
   // one sample is enough: Tone pitch-shifts it to any note
