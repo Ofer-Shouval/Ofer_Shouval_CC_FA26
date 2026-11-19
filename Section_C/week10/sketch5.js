@@ -52,8 +52,8 @@ function draw(){
 
     // mouseY controls how much reverb: top = dry, bottom = fully wet
     let wet = map(mouseY, 0, height, 0, 1, true)
-    // reverb.drywet(wet)
-    // text('reverb: ' + nf(wet, 1, 2), 20, 60)
+    reverb.drywet(wet)
+    text('reverb: ' + nf(wet, 1, 2), 20, 60)
 
    
 }
