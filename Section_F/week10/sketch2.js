@@ -22,6 +22,7 @@ function setup() {
 
 function draw() {
   background(220);
+  fill(0); // text color (the handle below changes fill to white)
   textAlign(CENTER, CENTER);
   text('press p to play or stop', width / 2, 20);
 
@@ -30,10 +31,20 @@ function draw() {
 
    if(mySound.isPlaying()){
      
-    text(round(time), 10,10)
+    // seconds played, just above the left end of the bar
+    text(round(time) + ' s', 40, height/2 - 30)
   }
 
-  rect(map(time, 0, mySound.duration(),0,width), height/2, 20,20)
+  // the scrub bar: an outline the length of the song, 40px in from each side
+  let barLeft = 40
+  let barRight = width - 40
+
+  noFill()
+  rect(width/2, height/2, barRight - barLeft, 20)
+
+  // the handle: where we are in the song
+  fill(255)
+  rect(map(time, 0, mySound.duration(), barLeft, barRight), height/2, 20,20)
 
 
   // let playBackSpeedX = map(mouseX, 0,width,-3,3)
@@ -54,11 +65,14 @@ function keyPressed() {
   
 
 
-if(mySound.isPlaying() && key == 'p'){
-  mySound.stop()
-} 
-else{
-  mySound.loop();
+// only the p key does anything
+if(key == 'p'){
+  if(mySound.isPlaying()){
+    mySound.stop()
+  }
+  else{
+    mySound.loop();
+  }
 }
 
 
@@ -67,6 +81,7 @@ else{
 function mouseDragged(){
 
   if(mySound.isPlaying()){
-     mySound.jump(map(mouseX,0,width, 0,mySound.duration() ))
+     // map the mouse along the bar (40px in from each side) to a time in the song
+     mySound.jump(map(mouseX, 40, width - 40, 0, mySound.duration(), true))
   }
 }

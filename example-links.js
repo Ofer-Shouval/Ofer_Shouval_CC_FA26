@@ -6,8 +6,14 @@
 //
 // Clicking a link reloads the page as weekN.html?sketch=sketch1.js
 // With no ?sketch= in the address, the default sketch is shown.
+//
+// Optional: give the links names instead of file names
+//   exampleLinks(["sketch1.js", "sketch2.js"], "sketch2.js", {
+//     "sketch1.js": "Loop a clip",
+//     "sketch2.js": "Speed and reverse",
+//   });
 
-function exampleLinks(sketches, defaultSketch) {
+function exampleLinks(sketches, defaultSketch, names = {}) {
   const params = new URLSearchParams(window.location.search);
   let current = params.get("sketch");
 
@@ -18,7 +24,7 @@ function exampleLinks(sketches, defaultSketch) {
 
   let html = '<nav style="display: flex; flex-wrap: wrap; gap: 15px; margin: 8px 0;">';
   for (const file of sketches) {
-    const label = file.replace(".js", "");
+    const label = names[file] || file.replace(".js", "");
     const weight = file === current ? "bold" : "normal";
     html += `<a href="?sketch=${file}" style="font-weight: ${weight};">${label}</a>`;
   }

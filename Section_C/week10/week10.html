@@ -13,7 +13,16 @@
     <div style="position: fixed; top: 8px; left: 8px; z-index: 10; padding: 4px 8px; background: rgba(255, 255, 255, 0.85); font-family: Arial, sans-serif; font-size: 12px;">
       <a href="../../index.html"> back to landing page </a>
       <script src="../../example-links.js"></script>
-      <script> exampleLinks(["sketch1.js", "sketch2.js", "sketch3.js", "sketch4.js", "sketch5.js"], "sketch2.js"); </script>
+      <script>
+        exampleLinks(["sketch1.js", "sketch2.js", "sketch6.js", "sketch3.js", "sketch4.js", "sketch5.js"], "sketch2.js", {
+          "sketch1.js": "Loop a clip",
+          "sketch2.js": "Speed and reverse",
+          "sketch6.js": "Scrub through a song",
+          "sketch3.js": "Two oscillators",
+          "sketch4.js": "C major scale",
+          "sketch5.js": "Scale with reverb",
+        });
+      </script>
     </div>
     <main>
     </main>

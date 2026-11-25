@@ -16,11 +16,11 @@ let mySound1;
 async function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // mySound = await loadSound('microphones_clip_15s.mp3');
-  // mySound1 = await loadSound('microphones_clip_15s.mp3');
+  mySound = await loadSound('microphones_clip_15s.mp3');
+  mySound1 = await loadSound('microphones_clip_15s.mp3');
   // try a short sound too:
-  mySound = await loadSound('ping.mp3');
-  mySound1 = await loadSound('ping.mp3');
+  // mySound = await loadSound('ping.mp3');
+  // mySound1 = await loadSound('ping.mp3');
 
   // turn looping on (this does NOT start playback)
   mySound.loop(true);
