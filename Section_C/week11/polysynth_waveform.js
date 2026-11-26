@@ -12,7 +12,7 @@ function setup() {
   delay.set({
   delayTime: 0.3,
   feedback: 0.4,
-  wet: 0,
+  wet: 0.3,
 });
 
   // delay.set({
@@ -42,7 +42,7 @@ function setup() {
   synth = new Tone.PolySynth()
   synth.volume.value = -10;
   synth.set({
-    oscillator: { type: "fatsawtooth", count:10, spread: 20 },
+    oscillator: { type: "fatsawtooth", count:1, spread: 20 },
     envelope: { attack: 0.05, decay: 0.2, sustain: 0.5, release: 1.5 },
   });
 
@@ -70,7 +70,7 @@ function setup() {
 
   // the waveform listens to the end of the chain (what we hear)
   // 1024 = how many samples it captures each time
-  waveform = new Tone.Waveform(2048);
+  waveform = new Tone.Waveform(1024);
   filter.connect(waveform);
 }
 
@@ -117,7 +117,7 @@ function draw() {
   beginShape();
   for (let i = 0; i < samples; i++) {
     let x = map(i, 0, samples, 0, width);
-    let y = map(values[start + i], -1, 1, height, 120);
+    let y = map(values[start + i], -1, 1, height, 150);
     vertex(x, y);
   }
   endShape();

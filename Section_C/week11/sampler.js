@@ -20,7 +20,7 @@ async function setup() {
   Tone.context.lookAhead = 0; // play sounds right away, no delay
 
   // safety net at the end of the chain: stops anything going above -1 dB
-  let limiter = new Tone.Limiter(-3).toDestination();
+  let limiter = new Tone.Limiter(-10).toDestination();
 
   // echo effect: repeats every 8th note, each repeat a bit quieter
   delay = new Tone.FeedbackDelay({
@@ -34,7 +34,7 @@ async function setup() {
   // volume -12 dB leaves room for two pings + echoes stacking up
   sampler = new Tone.Sampler({
     urls: { C4: "ping.mp3" },
-    volume: -12
+    volume: -20 
   }).connect(delay);
   await Tone.loaded(); // wait until ping.mp3 has downloaded
 }

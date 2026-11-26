@@ -9,8 +9,8 @@ function setup() {
 
   delay = new Tone.FeedbackDelay();
   delay.set({
-  delayTime: 0.1,
-  feedback: 0.8,
+  delayTime: 0.5,
+  feedback: 0.3,
   wet: 0.5,
 });
 
@@ -24,8 +24,8 @@ function setup() {
   filter = new Tone.Filter()
   filter.set({
     type: "lowpass",
-    frequency: 1000,
-    Q: 15,
+    frequency: 100,
+    Q: 1,
   });
 
   // filter.set({
@@ -41,14 +41,20 @@ function setup() {
   synth = new Tone.PolySynth()
   synth.volume.value = -10;
   synth.set({
-    oscillator: { type: "fatsquare", count:3, detune:20 },
+     oscillator: { type: "fatsawtooth", count:5, spread:20 },
 
-    // oscillator:{type:'square'},
-    envelope: { attack: 0.01, decay: 1, sustain: 0, release: 0.5 },
+    // oscillator:{type:'sine'},
+    envelope: { attack: 0.01, decay: 5, sustain: 0.3, release: 0.5 },
   });
 
-synth.connect(filter)
+
+ synth.connect(filter)
+
+// synth.toDestination()
 filter.connect(delay)
+
+// filter.toDestination()
+
 delay.toDestination()
 
 
@@ -78,14 +84,18 @@ delay.toDestination()
 }
 
 function keyFreq(steps) {
-  return (261.63/4) * pow(2, steps / 12);
+  return (261.63) * pow(2, steps / 12);
 }
 
 function draw() {
   background(30);
 
-  let cutoff = map(mouseX, 0, width, 100, 8000, true);
+  let cutoff = map(mouseX, 0, width, 100, 8000);
   filter.set({frequency: cutoff})
+
+  let delaySpeed  = map(mouseY, 0, height, 0.01, 1);
+  // delay.set({delayTime: delaySpeed})
+  delay.delayTime.rampTo(delaySpeed, 0.1);
 
   let keyWidth = width / letters.length;
 
@@ -97,6 +107,9 @@ function draw() {
     textAlign(CENTER, CENTER);
     text(letters[i], i * keyWidth + keyWidth / 2, 100);
   }
+
+  fill(255)
+  ellipse(mouseX, mouseY, 50)
 }
 
 function keyPressed(event) {

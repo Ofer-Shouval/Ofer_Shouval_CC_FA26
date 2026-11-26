@@ -12,7 +12,7 @@ function setup() {
   delay.set({
   delayTime: 0.3,
   feedback: 0.4,
-  wet: 0,
+  wet: 0.2,
 });
 
   // delay.set({
@@ -42,9 +42,9 @@ function setup() {
   synth = new Tone.PolySynth()
   synth.volume.value = -10;
   synth.set({
-    // oscillator: { type: "sine"},
-    oscillator: { type: "fatsquare", count:10, spread:20 },
-    envelope: { attack: 0.05, decay: 0.2, sustain: 0.5, release: 1.5 },
+    oscillator: { type: "triangle"},
+    // oscillator: { type: "fatsquare", count:2, spread:5 },
+    envelope: { attack: 0.01, decay: 0.1, sustain: 0.0, release: 0.05 },
   });
 
   // synth.set({
@@ -69,6 +69,8 @@ function setup() {
 
   synth.connect(delay)
 
+  // synth.toDestination()
+
   // the FFT listens to the end of the chain (what we hear)
   // and splits the sound into 2048 frequency bands, low to high
   fft = new Tone.FFT(2048);
@@ -78,7 +80,7 @@ function setup() {
 }
 
 function keyFreq(steps) {
-  return (261.63/2) * pow(2, steps / 12);
+  return (880) * pow(2, steps / 12);
 }
 
 function draw() {
